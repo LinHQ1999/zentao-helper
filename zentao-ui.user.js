@@ -6,7 +6,7 @@
 // @require     https://unpkg.com/cn-workday@1.0.11/dist/cn-workday.js
 // @grant       GM_addStyle
 // @grant       GM_setClipboard
-// @version     1.3.2
+// @version     1.3.3
 // @author      LinHQ
 // @license     GPLv3
 // @description 标记 bug 留存时间、计算每日工时、一键复制解决的 bug、解决指派 bug 强制填写工时、Bug 点击在新标签页打开
@@ -163,7 +163,8 @@
         start.setDate(start.getDate() + 1)
       }
       // 一般是负的，退回多加的部分
-      if (ms !== 0) ms += end - start
+      ms += end - start
+      ms = Math.max(ms, 0)
 
       const rawh = ms / 3.6e6
 
