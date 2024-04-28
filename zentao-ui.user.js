@@ -3,6 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       http*://*/zentao/*
 // @require     https://unpkg.com/jquery@3.3.1/dist/jquery.min.js
+// @require     https://unpkg.com/cn-workday@1.0.11/dist/cn-workday.js
 // @grant       GM_addStyle
 // @grant       GM_setClipboard
 // @version     1.3.2
@@ -154,7 +155,8 @@
 
       let ms = 0
       while (start.getTime() < end) {
-        if (![0, 6].includes(start.getDay())) {
+        /* TODO: 暂时先用某一个手打的库来判断，后续考虑自动爬gov.com数据 */
+        if (CnWorkday.isWorkday(start)) {
           ms += d
         }
         /* TODO: 节假日跳过 */
