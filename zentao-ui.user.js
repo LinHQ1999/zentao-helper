@@ -130,7 +130,7 @@
                 $('a.effort').get(0).click()
               }
             }, true))
-        } else if (/resolvedbyme/.test(path)) {
+        } else if (/bug-browse/.test(path)) {
           $('<div class="btn btn-success">复制勾选</div>').on('click', function () {
             const bugs = $('tr.checked').map(function () {
               const tds = $(this).find("td")
